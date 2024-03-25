@@ -52,6 +52,7 @@
     #ffcc70 100%
   );
   padding: 20px;
+  border-radius: 10px;
 }
 .cardTwo {
   border: 1px solid black;
@@ -59,6 +60,7 @@
   width: 400px;
   padding: 20px;
   background-color:#DADBE0;
+  border-radius: 10px;
 }
 .containerCirlce{
     display: flex;
