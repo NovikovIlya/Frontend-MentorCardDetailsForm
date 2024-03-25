@@ -21,7 +21,13 @@ function App() {
     <div className={styles.wrapper}>
       <div className={styles.left}>
         <div className={styles.cardParent}>
-          <div className={styles.cardOne}></div>
+          <div className={styles.cardOne}>
+            <div className={styles.containerCirlce}>
+              <div className={styles.circleOne}></div>
+              <div className={styles.circleTwo}></div>
+            </div>
+            <div></div>
+          </div>
           <div className={styles.cardTwo}></div>
         </div>
       </div>
