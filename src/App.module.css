@@ -1,0 +1,15 @@
+.container{
+    width: 40%;
+}
+.two{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:10px;
+}
+.foorms{
+   
+}
+.childs{
+    display: flex;
+    gap:5px;
+}
