@@ -11,7 +11,7 @@ function App() {
     month: null,
     year: null,
   });
-  const [cvs, setCvs] = useState<string>('111');
+  const [cvs, setCvs] = useState<string | null>(null);
 
   const onFinish: FormProps<any>["onFinish"] = (values) => {
     console.log("Success:", values);
@@ -168,8 +168,8 @@ function App() {
               >
                 <Input
                   maxLength={3}
-
-                  value={cvs}
+                //@ts-ignore
+                  value={cvs && cvs}
                   onChange={handleCvs}
                   min={1}
                   max={999}
