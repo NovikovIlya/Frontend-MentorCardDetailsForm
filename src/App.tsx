@@ -112,7 +112,7 @@ function App() {
               rules={[
                 {
                   required: true,
-                  message: "Пожалуйста, введите номер кредитной карты",
+                  message: "Please, enter credit card",
                 },
               ]}
             >

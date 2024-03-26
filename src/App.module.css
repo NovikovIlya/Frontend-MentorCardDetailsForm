@@ -3,23 +3,25 @@
   grid-template-columns: 1fr 2fr;
   width: 100%;
 }
+
 .left {
   background-color: #4159d0a8;
-  background-image: linear-gradient(
-    43deg,
-    #4159d0a8 0%,
-    #c850c093 46%,
-    #8f723c 100%
-  );
+  background-image: linear-gradient(43deg,
+      #4159d0a8 0%,
+      #c850c093 46%,
+      #8f723c 100%);
 }
+
 .right {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .container {
   width: 40%;
 }
+
 .two {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -30,12 +32,14 @@
   display: flex;
   gap: 5px;
 }
+
 .cardParent {
   position: absolute;
   top: 50%;
   left: 33%;
   transform: translate(-50%, -50%);
 }
+
 .cardOne {
   border: 1px solid black;
   height: 200px;
@@ -44,80 +48,89 @@
   right: 30px;
   margin-bottom: 30px;
   background-color: #4158d0;
-  background-image: linear-gradient(
-    43deg,
-    #4158d0 0%,
-    #c850c0 46%,
-    #ffcc70 100%
-  );
+  background-image: linear-gradient(43deg,
+      #4158d0 0%,
+      #c850c0 46%,
+      #ffcc70 100%);
   padding: 20px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
+
 }
+
 .cardTwo {
   border: 1px solid black;
   height: 240px;
   width: 440px;
   /* padding: 20px; */
-  background-color:#DADBE0;
+  background-color: #DADBE0;
   border-radius: 10px;
 }
-.containerCirlce{
-    display: flex;
-    align-items: center;
-    gap:10px;
+
+.containerCirlce {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 
 }
-.circleOne{
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    background-color: rgb(209, 209, 209);
-}
-.circleTwo{
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    border:1px solid rgb(209, 209, 209);
+
+.circleOne {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: rgb(209, 209, 209);
 }
 
-.bot{
+.circleTwo {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgb(209, 209, 209);
+}
+
+.bot {
   display: flex;
   justify-content: space-between;
 }
-.dateNum{
+
+.dateNum {
   display: flex;
   color: white;
-  
+
 }
-.number{
+
+.number {
   color: white;
   font-size: 35px;
-  font-weight:600;
+  font-weight: 600;
 }
-.niz{
+
+.niz {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.cardName{
+
+.cardName {
   color: white;
 }
-.grayZone{
+
+.grayZone {
   margin-top: 20px;
   width: 100%;
   height: 20px;
   background-color: black
 }
-.gg{
+
+.gg {
   width: 100%;
   display: flex;
   justify-content: center;
 }
-.grayZoneTwo{
+
+.grayZoneTwo {
   margin-top: 20px;
   width: 80%;
   background-color: rgb(75, 75, 112);
@@ -126,15 +139,18 @@
   display: flex;
   justify-content: end;
   padding: 5px;
-  
+
 }
-.cvs{
+
+.cvs {
   color: white;
 }
+
 @media screen and (max-width: 600px) {
   .wrapper {
     grid-template-columns: 1fr;
   }
+
   .cardParent {
     display: flex;
     position: relative;
@@ -144,16 +160,20 @@
     top: 0;
     align-items: center;
   }
+
   .cardOne {
     order: 5000000;
     right: 10px;
   }
-  .cardOne,.cardTwo{
+
+  .cardOne,
+  .cardTwo {
     width: 70%;
     padding: 20px;
-   
+
   }
-  .cardTwo{
+
+  .cardTwo {
     margin-bottom: -90px;
     margin-top: 10px;
   }
