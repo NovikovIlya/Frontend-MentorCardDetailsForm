@@ -1,10 +1,18 @@
 import { useState } from "react";
 import "./App.css";
-import { Button, Form, type FormProps, Input, InputNumber } from "antd";
+import { Button, Form, type FormProps, Input } from "antd";
 import styles from "./App.module.css";
 import { MaskedInput } from "antd-mask-input";
 
 function App() {
+  const [name, setName] = useState<string | null>(null);
+  const [num, setNum] = useState<string | null>(null);
+  const [date, setDate] = useState({
+    month: null,
+    year: null,
+  });
+  const [cvs, setCvs] = useState<string>('111');
+
   const onFinish: FormProps<any>["onFinish"] = (values) => {
     console.log("Success:", values);
   };
@@ -14,7 +22,32 @@ function App() {
   };
 
   const maskInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
+    setNum(e.target.value);
+  };
+
+  const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+  };
+
+  const handleCvs = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if(Number(e.target.value) <= 999){
+      setCvs(e.target.value);
+    }else{
+      setCvs(prev=>prev)
+    }
+  };
+
+  const handleDate = (e: any) => {
+    if (e.target.value < 1) {
+      return;
+    }
+    if (String(e.target.value).length > 2) {
+      return;
+    }
+    setDate({
+      ...date,
+      [e.target.name]: e.target.value.padStart(2, 0),
+    });
   };
 
   return (
@@ -26,9 +59,27 @@ function App() {
               <div className={styles.circleOne}></div>
               <div className={styles.circleTwo}></div>
             </div>
-            <div></div>
+            <div className={styles.niz}>
+              <div className={styles.number}>{num && num}</div>
+              <div className={styles.bot}>
+                <div className={styles.cardName}>{name && name}</div>
+                {date.month && (
+                  <div className={styles.dateNum}>
+                    <div>{date.month}/</div>
+                    <div>{date.year}</div>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
-          <div className={styles.cardTwo}></div>
+          <div className={styles.cardTwo}>
+            <div className={styles.grayZone}></div>
+            <div className={styles.gg}>
+              <div className={styles.grayZoneTwo}>
+                <span className={styles.cvs}>{cvs && cvs}</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div className={styles.right}>
@@ -48,10 +99,10 @@ function App() {
               name="username"
               rules={[
                 { required: true, message: "Please input your username!" },
-                { max: 10 },
+                { max: 20 },
               ]}
             >
-              <Input />
+              <Input placeholder="Your name" onChange={handleName} />
             </Form.Item>
 
             <Form.Item<any>
@@ -59,11 +110,6 @@ function App() {
               label="Card number"
               name="password"
               rules={[
-                {
-                  pattern: /^(?:\d{4}-){3}\d{4}$|^\d{16}$/,
-                  message:
-                    "Пожалуйста, введите корректный номер кредитной карты в формате XXXX-XXXX-XXXX-XXXX",
-                },
                 {
                   required: true,
                   message: "Пожалуйста, введите номер кредитной карты",
@@ -85,13 +131,30 @@ function App() {
                 label="Exp.date (mm/yy)"
                 name="Exp.date"
                 rules={[
-                  { required: true, message: "Please input your password!" },
-                  {},
+                  { required: true, message: "Please input your exp.date!" },
                 ]}
               >
                 <div className={styles.childs}>
-                  <InputNumber type="number" style={{ width: "50%" }} />
-                  <InputNumber type="number" style={{ width: "50%" }} />
+                  <Input
+                  // @ts-ignore
+                    value={date.month && date.month }
+                    min={1}
+                    max={99}
+                    name="month"
+                    onChange={handleDate}
+                    type="number"
+                    style={{ width: "50%" }}
+                  />
+                  <Input
+                  // @ts-ignore
+                    value={date.year && date.year }
+                    min={1}
+                    max={99}
+                    name="year"
+                    onChange={handleDate}
+                    type="number"
+                    style={{ width: "50%" }}
+                  />
                 </div>
               </Form.Item>
 
@@ -103,7 +166,16 @@ function App() {
                   { required: true, message: "Please input your password!" },
                 ]}
               >
-                <InputNumber type="number" style={{ width: "100%" }} />
+                <Input
+                  maxLength={3}
+
+                  value={cvs}
+                  onChange={handleCvs}
+                  min={1}
+                  max={999}
+                  type="number"
+                  style={{ width: "100%" }}
+                />
               </Form.Item>
             </div>
 
